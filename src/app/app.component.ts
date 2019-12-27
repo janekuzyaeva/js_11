@@ -6,22 +6,19 @@ import { Sensor} from './shared/models/sensor.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'my-project';
   flag = true;
   maxLenght = 0;
   sensors: Sensor[] = [];
 
-
   constructor() {
-    // this.sensor1 = new Sensor(1, 'левый датчик', Math.random() > 0.5);
     for (let i = 0; i < 10; i++) {
-      this.sensors.push(new Sensor(i, 'Название', Math.random() > 0.5));
+      this.sensors.push(new Sensor(i, 'Name', Math.random() > 0.5));
       this.maxLenght++;
     }
-
   }
-
 
   onButtonClick() {
     this.flag = !this.flag;
@@ -33,13 +30,12 @@ export class AppComponent {
         id = i;
         break;
       }
-
     }
     this.sensors.splice(id, 1);
   }
 
   addSensor(id: HTMLInputElement, online: HTMLInputElement, name: HTMLInputElement) {
-    this.sensors.push(new Sensor(parseInt(id.value, 10), (name.value === '') ? 'Без названия' : name.value, online.checked));
+    this.sensors.push(new Sensor(parseInt(id.value, 10), (name.value === '') ? 'Noname' : name.value, online.checked));
     this.maxLenght++;
   }
 }

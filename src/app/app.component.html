@@ -1,36 +1,15 @@
-<!--<h1>{{title}}</h1>-->
-<!--<h1>{{someNumber + someNumber2}}</h1>-->
-<!--<h1>{{(flag)? "Yes" : "NO"}}</h1>-->
-<!-- &lt;!&ndash;Привязка свойств&ndash;&gt; -->
-<button (click)="onButtonClick()" [ngClass]="{'text-success': flag, 'text-danger': !flag}">КНОПОЧКА</button>
-
-
-<!--ngModel-->
-<!-- <input type="text" [(ngModel)]="title"> {{title}} -->
-
-<!--{{onButtonClick()}}-->
-
-<!--<div class="container">-->
-<!--  <div class = "row" *ngIf="flag">-->
-
-<!--  </div>-->
-<!--</div>-->
-<!--<input type="text" [(ngModel)]="str">-->
-
-
-
 <div class="container">
   <div class="row mb-1">
     <div class="col-3 mb-2"></div>
     <div class="col-6 mb-2 col-offset-6">
       <div class="card">
-        <h5 class="card-header">id: <input type="text" value="{{maxLenght}}" #ID></h5>
+        <h5 class="card-header">ID: <input type="text" value="{{maxLenght}}" #ID></h5>
         <div class="card-body">
           <h5 class = "card-title">
-            Онлайн: <input type="checkbox" checked #Online>
+            Online: <input type="checkbox" checked #Online>
           </h5>
-          <p class="class-text">Имя: <input type="text" placeholder="Имя" #Name></p>
-          <button (click)="addSensor(ID, Online, Name)">Добавить элемент</button>
+          <p class="class-text">Name: <input type="text" placeholder="Jane" #Name></p>
+          <button (click)="addSensor(ID, Online, Name)">Add</button>
         </div>
       </div>
     </div>
@@ -38,14 +17,13 @@
   <div class="row mb-1">
     <div class="col-6 mb-2" *ngFor="let sensor of sensors">
       <div class="card">
-        <h5 class="card-header">id {{sensor.id}}</h5>
+        <h5 class="card-header">ID {{sensor.id}}</h5>
         <div class="card-body">
           <h5 class = "card-title" [ngClass]="{'text-success': sensor.status, 'text-danger': !sensor.status}">
-            {{(sensor.status)? "Онлайн" : "Оффлайн"}}
+            {{(sensor.status)? "Online" : "Offline"}}
           </h5>
           <p class="class-text">{{sensor.name}}</p>
-          <button (click)="deleteSensor(sensor.id)" >Удалить блок</button>
-          <!--          <p class="class-text">{{sensor.show}}</p>-->
+          <button (click)="deleteSensor(sensor.id)" >Delete</button>
         </div>
       </div>
     </div>
